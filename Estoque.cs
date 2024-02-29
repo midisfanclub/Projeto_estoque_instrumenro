@@ -25,8 +25,9 @@ public class Estoque
         int cont = 1;
         foreach (Var_instrumentos item in instrumentos)
         {
-            Console.WriteLine($"{cont}. {item.Nome_instrumento} (R${item.Preco}) - {item.Quantidade_estoque} dispiníveis no estoque");
+            Console.WriteLine($"{cont}. {item.Nome_instrumento} {item.Marca} (R${item.Preco}) - {item.Quantidade_estoque} no estoque\nCatergoria: {item.Categoria}\nMaterial: {item.Material}");
             cont ++;
+            Console.WriteLine("-------------------------------------------------------------------------");
         }
     }
 
@@ -43,9 +44,36 @@ public class Estoque
         instrumento.Quantidade_estoque -= qtd;
     }
 
-    public void Remover()
+    public void Remover(int pos)
     {
-        
+    //    if (pos >= 0 && pos < instrumentos.Length)
+    //    {
+    //     instrumentos = instrumentos.Where((source, index) => index + 1 != pos).ToArray();
+    //    }
+
+    //    else{
+    //     Console.WriteLine("Indice inválido");
+    //    }
+       
+       
+       
+       
+       
+       
+        Var_instrumentos[] removerInstrumento = new Var_instrumentos[instrumentos.Length - 1];
+        for (int i = pos + 1; i < instrumentos.Length - 1; i++)
+        {
+            if (i > pos)
+            {
+              removerInstrumento[i] = instrumentos[i];
+            } 
+            else
+            {
+               removerInstrumento[i] = instrumentos [i + 1];
+            }    
+        }
+
+        instrumentos = removerInstrumento;
     }
 
 
