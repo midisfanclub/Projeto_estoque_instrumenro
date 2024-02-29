@@ -12,3 +12,4 @@ C:\Users\Alice\Desktop\SENAC\alg_prog_2\PTI\obj\Debug\net8.0\refint\PTI.dll
 C:\Users\Alice\Desktop\SENAC\alg_prog_2\PTI\obj\Debug\net8.0\PTI.pdb
 C:\Users\Alice\Desktop\SENAC\alg_prog_2\PTI\obj\Debug\net8.0\PTI.genruntimeconfig.cache
 C:\Users\Alice\Desktop\SENAC\alg_prog_2\PTI\obj\Debug\net8.0\ref\PTI.dll
+c:\Users\Alice\Desktop\SENAC\alg_prog_2\PTI\obj\Debug\net8.0\PTI.sourcelink.json

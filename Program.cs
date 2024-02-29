@@ -8,34 +8,38 @@ class Program
     {
         int opcao;
 
-        while(true)
+       Estoque estoque = new Estoque();
+
+        do
         {
             opcao = Menu();
         
-
-            string[] nome_instrumento = new string [10];
-            double[] precos = new double [10];
-            // double quantidade_estoque[] = 
-            // string marca[] = 
-            string[] categoria = new string [10];
-            // string material[] = 
-
-
             switch (opcao)
             {
                 case 1:
-                    Console.WriteLine("Cadastrar novo produto:");
-                    Console.WriteLine("Nome do intrumento:\n");
-                    nome_instrumento[0] = Console.ReadLine();
-                    Console.WriteLine("Preço unitário:\n");
-                    precos[0] = Convert.ToDouble(Console.ReadLine());
-                    Console.WriteLine("Categoria (ordas, sopro, percussão):");
-                    categoria[0] = Console.ReadLine();
+                   
+                   Var_instrumentos novo_instrumento = new Var_instrumentos();
+
+                    Console.WriteLine("\n>> Cadastrar novo produto");
+                    Console.WriteLine("\nNome do intrumento:");
+                    novo_instrumento.Nome_instrumento = Console.ReadLine();
+                    Console.WriteLine("\nPreço unitário:");
+                    novo_instrumento.Preco = Convert.ToDouble(Console.ReadLine());
+                    Console.WriteLine("\nCategoria (cordas, sopro ou percussão):");
+                    novo_instrumento.Categoria = Console.ReadLine();
+                    Console.WriteLine("\nMarca:");
+                    novo_instrumento.Marca = Console.ReadLine();
+                    Console.WriteLine("\nMaterial:");
+                    novo_instrumento.Material = Console.ReadLine();
+                    estoque.Adicionar(novo_instrumento);
+                    Console.WriteLine("\n>>Instrumento adicionado!<<\n\n");
 
                     break;
 
                 case 2:
-                    Console.WriteLine("Lista de produtos:");
+                    Console.WriteLine("\nLista de produtos:\n");
+                    estoque.Listar();
+                    Console.WriteLine("\n");
                     break;
 
                 case 3:
@@ -43,11 +47,35 @@ class Program
                     break;
 
                 case 4:
-                    Console.WriteLine("Entrada de estoque:");
+                    Console.WriteLine(">> Entrada de estoque");
+                    
+                    Console.WriteLine("\nLista de produtos:\n");
+                    estoque.Listar();
+                    Console.WriteLine("\n");
+                    
+                    Console.WriteLine("Posição do produto:");
+                    int pos = Convert.ToInt32(Console.ReadLine());
+
+                    Console.WriteLine("Quantidade a ser adicionada ao estoque:");
+                    int qtd = Convert.ToInt32(Console.ReadLine());
+
+                    estoque.Entrada(pos, qtd);
+
                     break;
 
                 case 5:
-                    Console.WriteLine("Saída de estoque:");
+                    Console.WriteLine(">> Saída de estoque");
+                   
+                    Console.WriteLine("\nLista de produtos:\n");
+                    estoque.Listar();
+                    Console.WriteLine("\n");
+                    
+                    Console.WriteLine("Posição do produto:");
+                    int posi = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine("Quantidade de saída:");
+                    int quantidade = Convert.ToInt32(Console.ReadLine());
+
+                    estoque.Saida(posi, quantidade);
                     break;
 
                 case 6: 
@@ -62,23 +90,22 @@ class Program
 
             }
         }
+        while (Menu() != 0);
     
     }
     public static int Menu()
     {
-        Console.WriteLine("\nQual operação deseja realizar");
-        Console.WriteLine("[1] Adição");
-        Console.WriteLine("[2] Subtração");
-        Console.WriteLine("[3] Multiplicação");
-        Console.WriteLine("[4] Divisão\n");
-        Console.WriteLine("[0] Sair\n");
+        Console.WriteLine("\nDigite o número correspondente a opção desejada:");
+        Console.WriteLine("[1] Novo");
+        Console.WriteLine("[2] Listar produtos");
+        Console.WriteLine("[3] Remover produtos");
+        Console.WriteLine("[4] Entrada estoque");
+        Console.WriteLine("[5] Saída estoque");
+        Console.WriteLine("\n[6] Sair");
 
         int opcao = Convert.ToInt32(Console.ReadLine());
         return opcao;
     }
-    public static string Novo()
-    {
-
-    }
+    
 
 }
