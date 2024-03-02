@@ -96,7 +96,7 @@ class Program
                     break;
 
                 case 6: 
-                    Console.WriteLine("----Programa encerrado----");
+                    Console.WriteLine("----Programa encerrado----\nNome: Alice Plentz");
                     Environment.Exit(0);
                     break;
 
